@@ -42,8 +42,6 @@ public class MessageFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_message, container, false);
 
-        //Toolbar toolbar = findViewById(R.id.toolbar);
-
         recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -69,16 +67,8 @@ public class MessageFragment extends Fragment {
                     Log.d("Value", "Current User: " + publisher);
 
                     publisherGlobal.add(publisher);
-//                    if (dataSnapshot.exists()) {
-                        //publisher[0] = user.getId();
-                        //mUsers.add(user);
-//                        Log.d("Value", "User: " + publisherGlobal[0]);
                         getMatchedUsers();
-//                    }
-//                    Log.d("Value", "User: " + publisherGlobal[0]);
                 }
-//                userAdapter = new UserAdapter(getContext(), mUsers);
-//                recyclerView.setAdapter(userAdapter);
             }
 
             @Override
@@ -95,14 +85,8 @@ public class MessageFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 mUsers.clear();
-                //Log.d("Value", "User: " + snapshot.getValue());
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     User user = dataSnapshot.getValue(User.class);
-                    Log.d("Value", "User: " + user);
-
-//                    Log.d("Value", "User: " + currentUsersNation[0]);
-//                    assert user != null;
-//                    assert firebaseUser != null;
 
                     for (int i=0; i < publisherGlobal.size(); i++){
                         if(publisherGlobal.get(i).equals(user.getId())){

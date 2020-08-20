@@ -38,12 +38,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ProfileFragment extends Fragment
-//        implements  PopupMenu.OnMenuItemClickListener
-{
+public class ProfileFragment extends Fragment{
 
     ImageView image_profile;
-    TextView posts, followers, following, fullname, bio, username, logout;
+    TextView posts, username, logout;
     Button edit_profile;
 
     RecyclerView recyclerView;
@@ -68,13 +66,8 @@ public class ProfileFragment extends Fragment
         image_profile = view.findViewById(R.id.image_profile);
         logout = view.findViewById(R.id.logout);
         posts = view.findViewById(R.id.posts);
-//        followers = view.findViewById(R.id.followers);
-//        following = view.findViewById(R.id.following);
-//        fullname = view.findViewById(R.id.fullname);
-//        bio = view.findViewById(R.id.bio);
         username = view.findViewById(R.id.username);
         edit_profile = view.findViewById(R.id.edit_profile);
-        //my_photos = view.findViewById(R.id.my_photos);
 
         recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
@@ -84,9 +77,7 @@ public class ProfileFragment extends Fragment
         photosAdapter = new PhotosAdapter(getContext(), postList);
         recyclerView.setAdapter(photosAdapter);
 
-        //showPopUp(options);
         userInfo();
-        //getFollowers();
         getNoOfPosts();
         myPhotos();
 
@@ -96,15 +87,12 @@ public class ProfileFragment extends Fragment
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(getContext(), StartActivity.class)
                         .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-//                Intent intent = new Intent (getContext(), OptionsActivity.class);
-//                startActivity(intent);
+
             }
         });
 
         if(profileID.equals(firebaseUser.getUid())){
             edit_profile.setText("Edit Profile");
-        } else{
-            //checkFollow();
         }
 
         edit_profile.setOnClickListener(new View.OnClickListener() {
@@ -144,7 +132,6 @@ public class ProfileFragment extends Fragment
                 if (user != null){
                     Glide.with(getContext()).load(user.getImageurl()).into(image_profile);
                     username.setText(user.getUsername());
-//                    bio.setText(user.getBio());
                 }
             }
 

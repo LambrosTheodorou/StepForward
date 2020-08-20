@@ -16,7 +16,6 @@
         <activity android:name=".EditProfileActivity" />
         <activity android:name=".MessageUserActivity" />
         <activity android:name=".MessageActivity" />
-        <activity android:name=".CommentsActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />

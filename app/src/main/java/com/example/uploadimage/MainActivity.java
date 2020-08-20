@@ -57,19 +57,10 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new HomeFragment();
                             break;
 
-//                        case R.id.nav_search:
-//                            selectedFragment = new SearchFragment();
-//                            break;
-
                         case R.id.nav_add:
                             selectedFragment = null;
                             startActivity(new Intent(MainActivity.this, PostActivity.class));
                             break;
-
-//                        case R.id.nav_heart:
-//                            selectedFragment = new NotificationFragment();
-//                            startActivity(new Intent(MainActivity.this, MessageActivity.class));
-//                            break;
 
                         case R.id.nav_profile:
                             SharedPreferences.Editor editor = getSharedPreferences("PREFS", MODE_PRIVATE).edit();
@@ -86,30 +77,5 @@ public class MainActivity extends AppCompatActivity {
                 }
             };
 
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.menu, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.logout:
-//                logout();
-//                return true;
-//
-//            default:
-//                return super.onOptionsItemSelected(item);
-//        }
-//    }
-//
-//    public void logout(){
-//        FirebaseAuth.getInstance().signOut();
-//        Intent mainIntent = new Intent(MainActivity.this, LoginActivity.class);
-//        startActivity(mainIntent);
-//    }
 
 }

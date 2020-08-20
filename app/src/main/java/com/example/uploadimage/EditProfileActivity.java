@@ -63,7 +63,6 @@ public class EditProfileActivity extends AppCompatActivity {
         save = findViewById(R.id.save);
         tv_change = findViewById(R.id.tv_change);
         username = findViewById(R.id.username);
-        //bio = findViewById(R.id.bio);
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         storageReference = FirebaseStorage.getInstance().getReference("uploads");
@@ -74,7 +73,6 @@ public class EditProfileActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User user = snapshot.getValue(User.class);
                 username.setText(user.getUsername());
-//                bio.setText(user.getBio());
                 Glide.with(getApplicationContext()).load(user.getImageurl()).into(profile_image);
             }
 
@@ -97,7 +95,6 @@ public class EditProfileActivity extends AppCompatActivity {
                 CropImage.activity()
                         .setAspectRatio(1,1)
                         .setCropShape(CropImageView.CropShape.OVAL)
-//                        .setCropShape(Build.VERSION.SDK_INT >= Build.VERSION_CODES.P ? CropImageView.CropShape.RECTANGLE : CropImageView.CropShape.OVAL)
                         .start(EditProfileActivity.this);
 
 

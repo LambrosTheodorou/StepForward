@@ -41,7 +41,6 @@ public class PostDetailFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_post_detail, container, false);
 
-        Context context;
         SharedPreferences preferences = getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE);
         postid = preferences.getString("postid", "none");
 

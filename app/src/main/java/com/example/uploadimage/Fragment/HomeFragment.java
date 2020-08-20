@@ -55,11 +55,6 @@ public class HomeFragment extends Fragment {
 
         TextView message_system = view.findViewById(R.id.message_system);
 
-
-        //LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        //linearLayoutManager.setReverseLayout(true);
-        //linearLayoutManager.setStackFromEnd(true);
-        //recyclerView.setLayoutManager(linearLayoutManager);
         postList = new ArrayList<>();
         postAdapter = new PostAdapter(getContext(), postList);
 
@@ -71,7 +66,6 @@ public class HomeFragment extends Fragment {
 
         progressBar = view.findViewById(R.id.progress_bar);
 
-        //checkFollowing();
         readPosts();
 
         message_system.setOnClickListener(new View.OnClickListener() {
@@ -83,31 +77,6 @@ public class HomeFragment extends Fragment {
         });
 
         return view;
-    }
-
-    private void checkFollowing(){
-        followingList = new ArrayList<>();
-
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Follow")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                .child("following");
-
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                followingList.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    followingList.add(snapshot.getKey());
-                }
-
-                readPosts();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
     }
 
     FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();

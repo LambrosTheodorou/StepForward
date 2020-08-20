@@ -7,14 +7,14 @@
     tools:context=".StartActivity"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="12dp">
+    android:padding="10dp">
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Step Forward"
-        android:textSize="50sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         android:textColor="@android:color/black"
         android:textAllCaps="true"/>
@@ -26,8 +26,8 @@
 <!--        android:src="@drawable/title" />-->
 
     <ImageView
-        android:layout_width="605dp"
-        android:layout_height="400dp"
+        android:layout_width="550dp"
+        android:layout_height="300dp"
         android:layout_gravity="center"
         android:src="@drawable/cyprus_group" />
 

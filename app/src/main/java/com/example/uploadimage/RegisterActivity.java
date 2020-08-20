@@ -106,9 +106,7 @@ public class RegisterActivity extends AppCompatActivity {
                                         hashMap.put("username", username.getText().toString());
                                         hashMap.put("imageurl", "https://firebasestorage.googleapis.com/v0/b/myapp-1d383.appspot.com/o/human_icon.PNG?alt=media&token=b98297a0-9b6f-437d-b430-be942fbae866");
                                         hashMap.put("nation", radioButton.getText().toString());
-//
-//                                        User user =new User();
-//                                        user.setNation(radioButton.getText().toString());
+
                                         reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {

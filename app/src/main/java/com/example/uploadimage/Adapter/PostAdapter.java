@@ -2,41 +2,28 @@ package com.example.uploadimage.Adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.uploadimage.Fragment.PostDetailFragment;
 import com.example.uploadimage.Fragment.ProfileFragment;
-import com.example.uploadimage.CommentsActivity;
 import com.example.uploadimage.MessageActivity;
 import com.example.uploadimage.Model.User;
 import com.example.uploadimage.Model.Post;
 import com.example.uploadimage.R;
-import com.example.uploadimage.RegisterActivity;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -45,8 +32,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
@@ -201,8 +186,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        public ImageView image_profile, post_image, like, save, delete;
-        public TextView username, likes, publisher, title, date, description, comments;
+        public ImageView image_profile, post_image, like, delete;
+        public TextView username, likes, publisher, title, date, description;
 
         public ViewHolder(@NonNull View itemView){
             super (itemView);
@@ -210,15 +195,12 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
             image_profile = itemView.findViewById(R.id.image_profile);
             post_image = itemView.findViewById(R.id.post_image);
             like = itemView.findViewById(R.id.like);
-            //comment = itemView.findViewById(R.id.comment);
-            save = itemView.findViewById(R.id.save);
             username = itemView.findViewById(R.id.username);
             likes = itemView.findViewById(R.id.likes);
             publisher = itemView.findViewById(R.id.publisher);
             title = itemView.findViewById(R.id.title);
             date = itemView.findViewById(R.id.date);
             description = itemView.findViewById(R.id.description);
-           // comments = itemView.findViewById(R.id.comments);
             delete = itemView.findViewById(R.id.delete);
         }
 
